@@ -1,5 +1,12 @@
 <div class="jumbotron center">
-	<h1>threesixtyfive</h1>
-	<p>One photo. Every day. 365 days.</p>
-	<%= link_to "Join the Challenge", "#", class: "btn btn-primary btn-lg" %>
+     <h1>threesixtyfive</h1>
+     <p>One photo. Every day. 365 days.</p>
+     <% if user_signed_in? %>
+          # do something
+     <% else %>
+       <p>
+         <%= link_to "Join the Challenge", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+       </p>
+  <% end %>  
+
 </div>
