@@ -1,0 +1,29 @@
+<h1>Listing snaps</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @snaps.each do |snap| %>
+      <tr>
+        <td><%= snap.title %></td>
+        <td><%= snap.description %></td>
+        <td><%= link_to 'Show', snap %></td>
+        <td><%= link_to 'Edit', edit_snap_path(snap) %></td>
+        <td><%= link_to 'Destroy', snap, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Snap', new_snap_path %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @snap.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @snap.description %>
+</p>
+
+<%= link_to 'Edit', edit_snap_path(@snap) %> |
+<%= link_to 'Back', snaps_path %>
