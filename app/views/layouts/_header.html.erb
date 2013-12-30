@@ -10,12 +10,17 @@
 	    <%= link_to "threesixtyfive", root_path, class:"navbar-brand" %>
 	  </div>
 
-	  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	  <!-- Collect the nav links, forms, and other content for toggling -->
+	  <div class="collapse navbar-collapse navbar-ex1-collapse">
+			<ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "About", about_path %></li>
         <% if user_signed_in? %>
-          <%= link_to "Sign out", destroy_user_session_path, class:"btn btn-default navbar-btn pull-right", method: :delete %>
+        	<li><%= link_to "Account Settings", edit_user_registration_path %></li>
+          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
         <% else %>
-          <%= link_to "Sign in", new_user_session_path, class:"btn btn-default navbar-btn pull-right" %>
+          <li><%= link_to "Sign in", new_user_session_path %></li>
         <% end %>
-  	</div><!-- /.navbar-collapse -->
+    	</ul>
+	  </div><!-- /.navbar-collapse -->
   </div><!-- /.container -->
 </nav>
