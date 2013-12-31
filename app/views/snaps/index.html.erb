@@ -1,37 +1,17 @@
-<h1>Listing snaps</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>User ID</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @snaps.each do |snap| %>
-      <tr>
-        <td><%= image_tag snap.image.url(:thumb) %></td>
-        <td><%= snap.title %></td>
-        <td><%= snap.description %></td>
-        <td><%= snap.user.email %></td>
-        <td><%= link_to 'Show', snap %></td>
+<div id="snaps" class="transitions-enabled">
+  <% @snaps.each do |snap| %>
+    <div class="box panel panel-default">
+      <%= image_tag snap.image.url(:thumb) %>
+      <div class="panel-body">
+        <%= snap.title %>
+        <%= snap.description %>
+        <%= snap.user.email if snap.user %>
+        <%= link_to 'Show', snap_path(snap) %>
         <% if snap.user == current_user %>
-          <td><%= link_to 'Edit', edit_snap_path(snap) %></td>
-          <td><%= link_to 'Destroy', snap, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%= link_to 'Edit', edit_snap_path(snap) %>
+          <%= link_to 'Destroy', snap, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<% if user_signed_in? %>
-  <%= link_to 'New Snap', new_snap_path, class: 'btn btn-primary' %>
-<% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
