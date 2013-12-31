@@ -56,7 +56,10 @@ class SnapsController < ApplicationController
       @snap = Snap.find(params[:id])
     end
 
-
+    def correct_user
+      @snap = current_user.snaps.find_by(id: params[:id])
+      redirect_to snaps_path, notice: "Yo, that aint your Snap!" if @snap.nil?
+    end
 
     def snap_params
       params.require(:snap).permit(:title, :description, :image)
