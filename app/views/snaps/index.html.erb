@@ -1,15 +1,23 @@
+<%= render 'pages/home' unless user_signed_in? %>
 <div id="snaps" class="transitions-enabled">
   <% @snaps.each do |snap| %>
     <div class="box panel panel-default">
-      <%= image_tag snap.image.url(:small) %>
+      <%=  %>
+      <%= link_to image_tag(snap.image.url(:small)), snap %>
       <div class="panel-body">
-        <%= snap.title %>
-        <%= snap.description %>
+        <p><strong><%= snap.title %></strong></p>
         <%= snap.user.email if snap.user %>
-        <%= link_to 'Show', snap_path(snap) %>
         <% if snap.user == current_user %>
-          <%= link_to 'Edit', edit_snap_path(snap) %>
-          <%= link_to 'Destroy', snap, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <div class="actions">
+            <%= link_to edit_snap_path(snap) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+              Edit
+            <% end %>
+            <%= link_to snap, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              Delete
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>
