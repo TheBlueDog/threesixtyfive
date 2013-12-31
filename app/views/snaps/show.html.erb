@@ -11,6 +11,7 @@
 			<div class="panel-body">
 				<p><strong><%= @snap.title %></strong></p>
 				<p><%= @snap.description %></p>
+				<p><%= @snap.user.username if @snap.user %></p>
 				<% if @snap.user == current_user %>
             <%= link_to edit_snap_path(@snap) do %>
               <span class="glyphicon glyphicon-edit"></span>
