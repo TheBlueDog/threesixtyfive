@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div class="row">
   <div class="col-md-offset-1 col-md-10">
     <div class="panel panel-default">
@@ -9,7 +7,7 @@
 			<div class="panel-body">
 				<p><strong><%= @snap.title %></strong></p>
 				<p><%= @snap.description %></p>
-				<p><%= @snap.user.username if @snap.user %></p>
+				<p>Photo by: <%= @snap.user.username if @snap.user %></p>
 				<% if @snap.user == current_user %>
             <%= link_to edit_snap_path(@snap) do %>
               <span class="glyphicon glyphicon-edit"></span>
