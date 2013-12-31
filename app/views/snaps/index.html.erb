@@ -5,6 +5,7 @@
     <tr>
       <th>Title</th>
       <th>Description</th>
+      <th>User ID</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,9 +17,12 @@
       <tr>
         <td><%= snap.title %></td>
         <td><%= snap.description %></td>
+        <td><%= snap.user.email %></td>
         <td><%= link_to 'Show', snap %></td>
-        <td><%= link_to 'Edit', edit_snap_path(snap) %></td>
-        <td><%= link_to 'Destroy', snap, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if snap.user == current_user %>
+          <td><%= link_to 'Edit', edit_snap_path(snap) %></td>
+          <td><%= link_to 'Destroy', snap, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +30,6 @@
 
 <br>
 
-<%= link_to 'New Snap', new_snap_path, class: 'btn btn-primary' %>
+<% if user_signed_in? %>
+  <%= link_to 'New Snap', new_snap_path, class: 'btn btn-primary' %>
+<% end %>

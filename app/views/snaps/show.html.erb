@@ -10,5 +10,8 @@
   <%= @snap.description %>
 </p>
 
-<%= link_to 'Edit', edit_snap_path(@snap) %> |
-<%= link_to 'Back', snaps_path %>
+<% if @snap.user == current_user %>
+	<%= link_to 'Edit', edit_snap_path(@snap) %> |
+<% end %>
+	<%= link_to 'Back', snaps_path %>
+

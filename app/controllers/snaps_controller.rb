@@ -1,5 +1,7 @@
 class SnapsController < ApplicationController
   before_action :set_snap, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @snaps = Snap.all
@@ -9,14 +11,14 @@ class SnapsController < ApplicationController
   end
 
   def new
-    @snap = Snap.new
+    @snap = current_user.snaps.build
   end
 
   def edit
   end
 
   def create
-    @snap = Snap.new(snap_params)
+    @snap = current_user.snaps.build(snap_params)
 
     respond_to do |format|
       if @snap.save
@@ -54,7 +56,17 @@ class SnapsController < ApplicationController
       @snap = Snap.find(params[:id])
     end
 
+    def correct_user
+      @snap = current_user.snaps.find_by(id: params[:id])
+      redirect_to snaps_path, notice: "Yo, that aint your Snap!" if @snap.nil?
+    end
+
     def snap_params
       params.require(:snap).permit(:title, :description)
     end
 end
+
+
+
+
+
