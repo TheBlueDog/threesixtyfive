@@ -1,7 +1,7 @@
 <div id="snaps" class="transitions-enabled">
   <% @snaps.each do |snap| %>
     <div class="box panel panel-default">
-      <%= image_tag snap.image.url(:thumb) %>
+      <%= image_tag snap.image.url(:small) %>
       <div class="panel-body">
         <%= snap.title %>
         <%= snap.description %>
