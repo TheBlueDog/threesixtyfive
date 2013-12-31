@@ -8,11 +8,12 @@ $jumbotron-bg: #bdc3c7;
 
 
 body {
-	background: url(http://lorempixel.com/1920/1920/city/9/) no-repeat center center fixed; 
+	background: url(http://lorempixel.com/1920/1920/people/) no-repeat center center fixed; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+	padding-top: 70px;
 }
 
 .panel-default {
