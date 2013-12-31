@@ -4,7 +4,7 @@ class SnapsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @snaps = Snap.all
+    @snaps = Snap.all.order("created_at DESC")
   end
 
   def show
