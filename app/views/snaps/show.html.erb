@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= image_tag @snap.image.url(:large) %>
+
 <p>
   <strong>Title:</strong>
   <%= @snap.title %>
@@ -8,6 +10,10 @@
 <p>
   <strong>Description:</strong>
   <%= @snap.description %>
+</p>
+
+<p>Created at:
+	<%= @snap.created_at %>
 </p>
 
 <% if @snap.user == current_user %>

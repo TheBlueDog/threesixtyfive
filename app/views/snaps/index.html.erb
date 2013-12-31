@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Image</th>
       <th>Title</th>
       <th>Description</th>
       <th>User ID</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @snaps.each do |snap| %>
       <tr>
+        <td><%= image_tag snap.image.url(:thumb) %></td>
         <td><%= snap.title %></td>
         <td><%= snap.description %></td>
         <td><%= snap.user.email %></td>
