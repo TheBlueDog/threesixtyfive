@@ -1,32 +1,45 @@
-== README
+# threesixtyfive
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Content coming soon.
 
-Things you may want to cover:
+***
 
-* Ruby version
+### Setting up local development environment
 
-* System dependencies
+Step 1. Create local directory for the project. 
+```
+/threesixtyfive 
+```
 
-* Configuration
+Step 2. Clone the repository.
+```
+$ git clone git@github.com:TheBlueDog/threesixtyfive.git
+```
 
-* Database creation
+Step 3. Download and install ImageMagick (http://cactuslab.com/imagemagick/)
 
-* Database initialization
+Step 4. In terminal (close and reopen if you already had it open), check to see that ImageMagick has installed.
+````
+$ identify
+````
 
-* How to run the test suite
+Step 5. Intall gems needed for this project
+````
+$ bundle install
+````
+If an error occurs when trying to install the pg gem, do the steps below and then rerun the install.
+````
+$ brew update
+$ brew install postgresql
+````
 
-* Services (job queues, cache servers, search engines, etc.)
+Step 6. Run database migration
+````
+$ rake db:migrate
+````
 
-* Deployment instructions
+Step 7. Start the server and go to localhost:3000 in your browser of choice
+````
+$ rails server
+````
 
-* ...
-
-This project uses the following RubyGems:
-
-bootstrap-sass 3.0.3.0
-devise 3.2.2
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
