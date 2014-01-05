@@ -1,9 +1,18 @@
-<div class="jumbotron center">
-	<h1>snap365</h1>
-	<p>Snap one photo. Every day. 365 days.</p>
-    <% if user_signed_in? %>
-		<p><%= link_to "Add a New Snap!", new_snap_path, class: "btn btn-primary btn-lg" %></p>
-    <% else %>
-	    <p><%= link_to "Join the Challenge", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
-    <% end %>
-</div>
+
+<% if user_signed_in? %>
+
+
+	<%= link_to new_snap_path do %>
+		<div class="center"><button class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-plus"></span><br>New Snap</button></div>
+	<% end %>
+
+
+	<% else %>
+
+	<div class="jumbotron center">
+		<h1>snap365</h1>
+		<p>Snap one photo. Every day. 365 days.</p>
+		<p><%= link_to "Join the Challenge", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+	</div>
+
+ <% end %>
