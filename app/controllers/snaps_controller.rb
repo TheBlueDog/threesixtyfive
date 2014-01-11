@@ -4,7 +4,10 @@ class SnapsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @snaps = Snap.all.order("created_at DESC")
+    @date = Time.parse(params[:date]) rescue Time.now
+    from = @date.beginning_of_day
+    to   = @date.end_of_day
+    @snaps = Snap.where(created_at: from..to).order("created_at DESC")
   end
 
   def show

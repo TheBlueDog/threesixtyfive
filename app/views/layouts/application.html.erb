@@ -8,11 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-
-    <div id="wrap">
-
+  <div id="wrap">
 	<%= render 'layouts/header' %>
-
       <div class="container">
         <% flash.each do |name, msg| %>
     	<%= content_tag(:div, msg, class: "alert alert-info") %>
@@ -20,9 +17,7 @@
 		
 		<%= yield %>
       </div><!-- /.container -->
-    </div><!-- /.wrap -->
-
-    <%= render 'layouts/footer' %>
-
+  </div><!-- /.wrap -->
+  <%= render 'layouts/footer' %>
 </body>
 </html>
