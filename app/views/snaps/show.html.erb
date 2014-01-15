@@ -8,7 +8,7 @@
 				<p><strong><%= @snap.title %></strong></p>
 				<p><%= @snap.description %></p>
 				<p>Photo by: <%= @snap.user.username if @snap.user %></p>
-        <p>Uploaded: <%= @snap.created_at.strftime("%B %-d, %Y") if @snap.user %></p>
+        <!-- <p>Uploaded: <%= @snap.created_at.strftime("%B %-d, %Y") if @snap.user %></p> -->
         <p>Taken: <%= @snap.taken_at.strftime("%B %-d, %Y") if @snap.user %></p>
         <p>Camera: <%= @snap.make %> <%= @snap.model %>
         <% if @snap.user == current_user %>
