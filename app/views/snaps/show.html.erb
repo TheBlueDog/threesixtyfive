@@ -9,12 +9,8 @@
 				<p><%= @snap.description %></p>
 				<p>Photo by: <%= @snap.user.username if @snap.user %></p>
         <p>Uploaded: <%= @snap.created_at.strftime("%B %-d, %Y") if @snap.user %></p>
-        <p>Taken at: <%= @snap.taken_at.strftime("%B %-d, %Y") if @snap.user %></p>
-        <p>Camera: <%= @snap.make %> <%= @snap.model %></p>
-        <p>Focal Length: <%= @snap.focallength %></p>
-        <p>Shutter Speed: </p>
-        <p>Aperture: </p>
-        <p>ISO: <%= @snap.iso %></p>
+        <p>Taken: <%= @snap.taken_at.strftime("%B %-d, %Y") if @snap.user %></p>
+        <p>Camera: <%= @snap.make %> <%= @snap.model %>
         <% if @snap.user == current_user %>
           <div class="actions">
             <%= link_to edit_snap_path(@snap) do %>
