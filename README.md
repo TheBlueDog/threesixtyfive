@@ -43,3 +43,5 @@ Step 7. Start the server and go to localhost:3000 in your browser of choice
 $ rails server
 ````
 
+Now with more EXIF goodness.
+
