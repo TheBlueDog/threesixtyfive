@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140115041632) do
+ActiveRecord::Schema.define(version: 20140120015927) do
 
   create_table "snaps", force: true do |t|
     t.string   "title"
@@ -26,6 +26,10 @@ ActiveRecord::Schema.define(version: 20140115041632) do
     t.datetime "taken_at"
     t.string   "make"
     t.string   "model"
+    t.string   "aperture"
+    t.integer  "iso"
+    t.string   "focal"
+    t.string   "shutter"
   end
 
   add_index "snaps", ["user_id"], name: "index_snaps_on_user_id"

@@ -13,5 +13,8 @@ class Snap < ActiveRecord::Base
       self.taken_at = photo["DateTimeOriginal"]
       self.make = photo["Make"]
       self.model = photo["Model"]
+      self.aperture = photo["Aperture"]
+      self.iso = photo["ISO"]
+      self.focal = photo["FocalLengthIn35mmFormat"]
   end
 end
