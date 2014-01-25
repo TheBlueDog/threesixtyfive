@@ -10,7 +10,6 @@
 				<p>Photo by: <%= @snap.user.username if @snap.user %></p>
         <p>Taken: <%= @snap.taken_at.strftime("%B %-d, %Y") if @snap.user && @snap.taken_at.present? %></p>
         <p>Camera: <%= @snap.make if @snap.user && @snap.make.present? %> <%= @snap.model if @snap.user && @snap.model.present? %></p>
-        <p>Aperture: f/<%= @snap.aperture if @snap.user && @snap.aperture.present? %></p>
         <p>ISO: <%= @snap.iso if @snap.user && @snap.iso.present? %></p>
         <p>Focal Length: <%= @snap.focal if @snap.user && @snap.focal.present? %></p>
         <% if @snap.user == current_user %>
