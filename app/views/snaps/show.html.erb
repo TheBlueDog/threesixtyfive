@@ -13,6 +13,7 @@
         <p>Aperture: f/<%= @snap.aperture if @snap.aperture.present? %></p>
         <p>ISO: <%= @snap.iso if @snap.iso.present? %></p>
         <p>Focal Length: <%= @snap.focal if @snap.focal.present? %></p>
+        <p><%= @snap.shutter %></p>
         <% if @snap.user == current_user %>
           <div class="actions">
             <%= link_to edit_snap_path(@snap) do %>
